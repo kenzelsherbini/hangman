@@ -31,16 +31,15 @@ function startGame(level){
     selectedWord = getRandomWord(level)
 
     updateDifficultyDisplay(level)
-    updateUI()
 
     //show game area/difficulty display, hide selection buttons
     document.getElementById('gameArea').classList.remove('d-none')
     document.getElementById('gameArea').classList.add('d-block')
-
+  
     document.getElementById('difficultyBox').classList.remove('d-none')
     document.getElementById('difficultyBox').classList.add('d-block')
-
-    document.getElementById('difficultySelection').classList.remove('d-none')
+  
+    document.getElementById('difficultySelection').classList.add('d-none')
 }
 
 //function for getting random word 
@@ -52,24 +51,25 @@ function getRandomWord(level) {
         if (level === 'hard') return word.length >=8
     })
 
-    return filteredWords[Math.floor(Math.random()*filteredWords.length)]
+    return filteredWords[Math.floor(Math.random() *filteredWords.length)]
 }
 
 
 //update difficulty display
-function updateDifficultyDisplay(level){
+function updateDifficultyDisplay (level) {
     let difficultyBox = document.getElementById('difficultyBox')
     difficultyBox.classList.remove('easy', 'medium', 'hard')
-
+  
 //add the difficulty level in the text box 
-    if (level === 'easy') {
-      difficultyBox.classList.add('easy')
-      difficultyBox.textContent = 'Difficulty: Easy'
-    } else if(level === `medium`) {
-        difficultyBox.classList.add('medium')
-        difficultyBox.textContent = 'Difficulty: Medium'
-    } else if(level === 'hard') {
-        difficultyBox.classList.add('hard')
-        difficultyBox.textContent = 'Difficulty: Hard'
-    }
+if (level === 'easy') {
+    difficultyBox.textContent = 'Difficulty: Easy 🍀'
+    difficultyBox.classList.add('easy')
+  } else if (level === 'medium') {
+    difficultyBox.textContent = 'Difficulty: Medium 🌟'
+    difficultyBox.classList.add('medium')
+  } else if (level === 'hard') {
+    difficultyBox.textContent = 'Difficulty: Hard 💀'
+    difficultyBox.classList.add('hard')
+  }
 }
+
