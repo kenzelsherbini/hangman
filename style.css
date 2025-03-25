@@ -11,13 +11,17 @@ font-style: normal;
 }
 
 body {
-    background-image: url(imgs/bg.jpg);
+    background-image: url(imgs/Firefly\ white\ background\ image\ with\ clover\ leaf\ border\ 88843.jpg);
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: top center;
 }
 
+.container {
+    background-color: #31d45a;
+    border: #208b3a;
+}
 
-.easy {background-color:rgb(182, 240, 177); color: rgb(44, 126, 97); border: 2px}
-.medium {background-color:rgb(255, 189, 127); color: #c0790f; border: 2px}
-.hard {background-color:rgb(235, 103, 103); color: #851a1a; border: 2px}
+.easy {background-color:rgb(182, 240, 177); color: rgb(44, 126, 97); border: 2px; margin-left: 30%; margin-right: 30%;}
+.medium {background-color:rgb(255, 189, 127); color: #c0790f; border: 2px; margin-left: 30%; margin-right: 30%;}
+.hard {background-color:rgb(235, 103, 103); color: #851a1a; border: 2px; margin-left: 30%; margin-right: 30%;}

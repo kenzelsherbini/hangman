@@ -29,8 +29,10 @@ function startGame(level){
     guessedLetters = []
     //function to get random word
     selectedWord = getRandomWord(level)
+    displayedWord = '_'.repeat(selectedWord.length)
 
     updateDifficultyDisplay(level)
+    updateUI()
 
     //show game area/difficulty display, hide selection buttons
     document.getElementById('gameArea').classList.remove('d-none')
@@ -40,6 +42,9 @@ function startGame(level){
     document.getElementById('difficultyBox').classList.add('d-block')
   
     document.getElementById('difficultySelection').classList.add('d-none')
+
+
+    document.getElementById('letterInput').focus()
 }
 
 //function for getting random word 
@@ -60,16 +65,100 @@ function updateDifficultyDisplay (level) {
     let difficultyBox = document.getElementById('difficultyBox')
     difficultyBox.classList.remove('easy', 'medium', 'hard')
   
-//add the difficulty level in the text box 
+//adds the difficulty level in the text box 
 if (level === 'easy') {
-    difficultyBox.textContent = 'Difficulty: Easy 🍀'
+    difficultyBox.textContent = 'Difficulty: Easy'
     difficultyBox.classList.add('easy')
   } else if (level === 'medium') {
-    difficultyBox.textContent = 'Difficulty: Medium 🌟'
+    difficultyBox.textContent = 'Difficulty: Medium'
     difficultyBox.classList.add('medium')
   } else if (level === 'hard') {
-    difficultyBox.textContent = 'Difficulty: Hard 💀'
+    difficultyBox.textContent = 'Difficulty: Hard'
     difficultyBox.classList.add('hard')
   }
 }
 
+
+//show word with spaces between
+function updateUI() {
+  document.getElementById('wordDisplay').textContent = displayedWord.split('').join(' ')// adds space in between letters and splits the word up 
+}
+
+
+function guessLetter () {
+  let inputField = document.getElementById('letterInput')//get input field
+  let guessedLetter = inputField.value.toLowerCase()// change letters to lowercase 
+
+  //check and see if the value is input
+  if (!guessedLetter.match(/^[a-z]$/)){
+    alert('Please enter a valid letter.')//alert user if the input is valid
+    inputField.value = ''
+    return //exit function
+  }
+
+
+//check if letter was already guessed
+if(guessedLetters.includes(guessedLetter)){
+  alert(`You already guessed ${guessLetter}. Try a different letter.`)
+  inputField.value = ''//clear input
+  return
+}
+
+  //store guessed letter
+guessedLetters.push(guessLetter)
+
+//check if the letter is in the word
+if (selectedWord.includes(guessLetter)){
+  updateCorrectGuess(guessedLetter)
+} else {
+  updateWrongGuess(guessedLetter)
+}
+
+inputField.value = ''//clear input field
+document.getElementById('letterInput').focus() //refocus 
+
+}
+
+function updateWrongGuess(guessedLetter){ 
+  wrongGuesses++
+  document.getElementById('wrongLetters').textContent += `${guessedLetter}`
+  //document.getElementById('shamrock').src = `imgs/shamrock${6-wrongGuesses}.jpg`
+
+  if (wrongGuesses === maxMistakes){
+    endGame(false)
+  }
+}
+
+function updateCorrectGuess(guessedLetter){
+  let newDisplayedWord =''
+
+  for (let i=0; i < selectedWord.length; i++){
+    if (selectedWord[i] === guessedLetter){
+    newDisplayedWord += guessedLetter // Replace underscore with correct letter
+    }else{
+    newDisplayedWord += displayedWord[i] // Keep existing correct letters
+    }
+  }
+
+  displayedWord = newDisplayedWord
+  updateUI()
+
+  //  Check if the player has guessed all letters
+  if (!displayedWord.includes('_')) {
+    endGame(true)
+  }
+
+}
+
+function endGame(won){
+  if (won){
+    alert(`Congratulations! You guessed ${selectedWord}`)
+  } else {
+    alert(`Sorry, the correct word was ${selectedWord}.`)
+  }
+  
+}
+
+function restartGame(){
+  location.reload()
+}
