@@ -20,43 +20,36 @@
         <link rel="stylesheet" href="https://use.typekit.net/smr8qal.css">
     </head>
 
-    <body 
-    >
+    <body>
 
-        <main class="container text-center mt-5 m-5">
+        <main class="container text-center p-4 rounded m-5">
             <h1 class="m-4">Shamrock Hangman</h1>
-
+    
             <div id="difficultySelection">
                 <h3>Select Difficulty</h3>
                 <button class="btn btn-success difficulty-btn" onclick="startGame('easy')">Easy</button>
                 <button class="btn btn-warning difficulty-btn" onclick="startGame('medium')">Medium</button>
                 <button class="btn btn-danger difficulty-btn" onclick="startGame('hard')">Hard</button>
             </div>
-
-            <div id="difficultyBox" class="mt-3 p-3 fw-bold"></div> <!--add d-none here-->
-
-            <div id="gameArea" class="mt-4 d-none"><!--ADD d-none-->
+    
+            <div id="difficultyBox" class="mt-3 p-3 fw-bold"></div>
+    
+            <div id="gameArea" class="mt-4 d-none">
                 <h2 id="wordDisplay" class="mb-3"></h2>
-
+    
                 <div class="mb-3">
                     <input type="text" id="letterInput" maxlength="1" class="form-control d-inline-block w-auto" placeholder="Enter a Letter">
                     <button id="guessBtn" class="btn btn-success" onclick="guessLetter()">Guess</button>
                 </div>
-
+    
                 <p id="wrongLetters" class="fw-bold text-danger">Wrong Guesses</p>
-
-                <img src="img/image-1" alt="" id="shamrock" class="shamrock-img">
-
+    
+                <img src="img/image-1" alt="Shamrock" id="shamrock" class="shamrock-img img-fluid">
+    
                 <div class="mt-4">
-                    <button id="restartBtn" class="btn btn-danger mb-5" onclick="restartGame">Restart Game</button>
+                    <button id="restartBtn" class="btn btn-danger mb-5" onclick="restartGame()">Restart Game</button>
                 </div>
-
-
             </div>
-
-
-
-            
         </main>
 
 
