@@ -151,10 +151,7 @@ function updateCorrectGuess(guessedLetter){
   displayedWord = newDisplayedWord
   updateUI()
 
-  if (event.key === "Enter") {
-    guessLetter();
-}
-
+  
   //  Check if the player has guessed all letters
   if (!displayedWord.includes('_')) {
     endGame(true)
@@ -164,9 +161,9 @@ function updateCorrectGuess(guessedLetter){
 
 function endGame(won){
   if (won){
-    alert(`Congratulations! You guessed ${selectedWord}`)
+    document.getElementById('popUpWon').classList.remove('d-none')
   } else {
-    alert(`Sorry, the correct word was ${selectedWord}.`)
+    document.getElementById('popUpLost').classList.remove('d-none')
   }
   
 }
