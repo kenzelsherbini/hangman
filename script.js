@@ -82,10 +82,18 @@ if (level === 'easy') {
 //show word with spaces between
 function updateUI() {
   document.getElementById('wordDisplay').textContent = displayedWord.split('').join(' ')// adds space in between letters and splits the word up 
+
+  document.getElementById('letterInput').addEventListener('keypress', function(event) {
+    if (event.key === "Enter") {
+        guessLetter(); //adds event listener to see if enter is rpessed 
+    }
+});
+
 }
 
 
 function guessLetter () {
+  
   let inputField = document.getElementById('letterInput')//get input field
   let guessedLetter = inputField.value.toLowerCase()// change letters to lowercase 
 
@@ -95,7 +103,6 @@ function guessLetter () {
     inputField.value = ''
     return //exit function
   }
-
 
 //check if letter was already guessed
 if(guessedLetters.includes(guessedLetter)){
@@ -116,7 +123,6 @@ if (selectedWord.includes(guessLetter)){
 
 inputField.value = ''//clear input field
 document.getElementById('letterInput').focus() //refocus 
-
 }
 
 function updateWrongGuess(guessedLetter){ 
@@ -128,6 +134,8 @@ function updateWrongGuess(guessedLetter){
     endGame(false)
   }
 }
+
+
 
 function updateCorrectGuess(guessedLetter){
   let newDisplayedWord =''
@@ -162,5 +170,6 @@ function endGame(won){
   }
   
 }
+
 
 
