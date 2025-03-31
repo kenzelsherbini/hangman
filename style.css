@@ -11,7 +11,7 @@ font-style: normal;
 }
 
 body {
-    background: url('imgs/bg.jpg')  no-repeat center center/cover;
+    background: url('imgs/bg.jpg')  ;
     height: 100vh;
     display: flex;
     justify-content: center;
