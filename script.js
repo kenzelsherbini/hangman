@@ -133,6 +133,8 @@ function updateWrongGuess(guessedLetter){
   if (wrongGuesses === maxMistakes){
     endGame(false)
   }
+
+  document.getElementById('incorrectSound').play();
 }
 
 
@@ -151,7 +153,7 @@ function updateCorrectGuess(guessedLetter){
   displayedWord = newDisplayedWord
   updateUI()
 
- 
+  document.getElementById('correctSound').play();
 
   //  Check if the player has guessed all letters
   if (!displayedWord.includes('_')) {
