@@ -159,6 +159,7 @@ function updateCorrectGuess(guessedLetter){
 
 }
 
+//popup for if player wins or loses game
 function endGame(won){
   if (won){
     document.getElementById('popUpWon').classList.remove('d-none')
@@ -168,5 +169,13 @@ function endGame(won){
   
 }
 
+
+function restartGame() {
+  //reset every variable to 0
+  wrongGuesses = 0;
+  guessedLetters = [];
+  selectedWord = "";
+  displayedWord = "";
+}
 
 
