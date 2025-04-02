@@ -176,6 +176,13 @@ function restartGame() {
   guessedLetters = [];
   selectedWord = "";
   displayedWord = "";
+  
+  //resets all elements to play game 
+  document.getElementById('wordDisplay').textContent = '';
+    document.getElementById('wrongLetters').textContent = 'Wrong Guesses';
+    document.getElementById('letterInput').value = '';
 }
+
+
 
 
