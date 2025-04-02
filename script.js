@@ -178,9 +178,18 @@ function restartGame() {
   displayedWord = "";
   
   //resets all elements to play game 
-  document.getElementById('wordDisplay').textContent = '';
+    document.getElementById('wordDisplay').textContent = '';
     document.getElementById('wrongLetters').textContent = 'Wrong Guesses';
     document.getElementById('letterInput').value = '';
+
+    //hides game area with difficulty box and displays the selection again 
+    document.getElementById('gameArea').classList.add('d-none');
+    document.getElementById('difficultyBox').classList.add('d-none');
+    document.getElementById('difficultySelection').classList.remove('d-none');
+
+    //hides popups 
+    document.getElementById('popUpWon').classList.add('d-none');
+    document.getElementById('popUpLost').classList.add('d-none');
 }
 
 
