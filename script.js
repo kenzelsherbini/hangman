@@ -131,7 +131,7 @@ function updateWrongGuess(guessedLetter) {
 
   // Update the health bar image
   if (wrongGuesses > 0 && wrongGuesses <= maxMistakes) {
-      document.getElementById('shamrock').src = `imgs/guess${wrongGuesses}.png`;
+      document.getElementById('shamrock').src = `img/guess${wrongGuesses}.png`;
   }
 
   if (wrongGuesses === maxMistakes) {
