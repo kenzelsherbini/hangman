@@ -125,17 +125,22 @@ inputField.value = ''//clear input field
 document.getElementById('letterInput').focus() //refocus 
 }
 
-function updateWrongGuess(guessedLetter){ 
-  wrongGuesses++
-  document.getElementById('wrongLetters').textContent += `${guessedLetter}`
-  //document.getElementById('shamrock').src = `imgs/shamrock${6-wrongGuesses}.jpg`
+function updateWrongGuess(guessedLetter) { 
+  wrongGuesses++;
+  document.getElementById('wrongLetters').textContent += ` ${guessedLetter}`;
 
-  if (wrongGuesses === maxMistakes){
-    endGame(false)
+  // Update the health bar image
+  if (wrongGuesses > 0 && wrongGuesses <= maxMistakes) {
+      document.getElementById('shamrock').src = `imgs/guess${wrongGuesses}.png`;
+  }
+
+  if (wrongGuesses === maxMistakes) {
+      endGame(false);
   }
 
   document.getElementById('incorrectSound').play();
 }
+
 
 
 
@@ -161,6 +166,8 @@ function updateCorrectGuess(guessedLetter){
   }
 
 }
+
+
 
 //popup for if player wins or loses game
 function endGame(won){

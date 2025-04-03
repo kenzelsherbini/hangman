@@ -48,9 +48,9 @@
                 <audio id="incorrectSound" src="sounds/incorrect.wav"></audio>
 
     
-                <p id="wrongLetters" class="fw-bold text-danger">Wrong Guesses</p>
+                <p id="wrongLetters" class="fw-bold text-danger">Wrong Guesses: </p>
     
-                <img src="img/image-1" alt="Shamrock" id="shamrock" class="shamrock-img img-fluid">
+                <img src="imgs/ogman.png" alt="Shamrock" id="shamrock" class="ogman img-fluid">
     
                 <div class="mt-4">
                     <button id="restartBtn" class="btn btn-danger mb-5" onclick="restartGame()">Restart Game</button>
@@ -59,14 +59,14 @@
         
     <div class="overlay">
         <div class="popUp m-5 p-5 text-center d-none rounded" id="popUpWon">
-            <h2 id="wonGame">Congratulations! You guessed the word (w0rd) </h2>
+            <h2 id="wonGame">Congratulations! You guessed the word!</h2>
             <div class="mt-4">
                 <button id="restartBtn" class="btn btn-danger mb-5" onclick="restartGame()">Restart Game</button>
             </div>
         </div>
 
         <div class="popUp m-5 p-5 text-center d-none rounded" id="popUpLost">
-            <h2 id="lostGame">Uh oh! Sorry, you lost. The word was (word)</h2>
+            <h2 id="lostGame">Uh oh! Sorry, you lost.</h2>
             <div class="mt-4">
                 <button id="restartBtn" class="btn btn-danger mb-5" onclick="restartGame()">Restart Game</button>
             </div>
